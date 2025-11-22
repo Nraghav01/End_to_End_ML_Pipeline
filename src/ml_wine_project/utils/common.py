@@ -20,12 +20,12 @@ import yaml
 from ml_wine_project import logger
 import json
 import joblib
-from ensure import ensure_annotations
+from typeguard import typechecked as ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
 
-#@ensute_annotations - This is a decorater. Decorator to be used on functions with annotations. Runs type checks to enforce annotations. 
+#@ensuse_annotations - This is a decorater. Decorator to be used on functions with annotations. Runs type checks to enforce annotations. 
 #                       Raises EnsureError if any argument passed to f is not of the type specified by the annotation. 
 #                       Also raises EnsureError if the return value of f is not of the type specified by the annotation. Examples:
 #ConfigBox - By default the a yaml file will be in dictionary format when loaded. This is used to convert the yaml dictionaryu in confix box type to call 

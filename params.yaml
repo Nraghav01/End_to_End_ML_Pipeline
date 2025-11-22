@@ -1,0 +1,4 @@
+#Here we update the model parameters: This way we are not hard coding the parameter values in the model ML pipeline and can just make one change here to reflect everywhere.
+ElasticNet:
+  alpha: 0.2
+  l1_ratio: 0.1

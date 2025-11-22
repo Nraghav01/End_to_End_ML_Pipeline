@@ -1,0 +1,20 @@
+#Data Schema: This file has all column names and their respective data types and separately mentioned the target variable
+#When we ingest the data file from our API/github this schema will be matched for data validation.
+COLUMNS:
+  fixed acidity: float64
+  volatile acidity: float64
+  citric acid: float64
+  residual sugar: float64
+  chlorides: float64
+  free sulfur dioxide: float64
+  total sulfur dioxide: float64
+  density: float64
+  pH: float64
+  sulphates: float64
+  alcohol: float64
+  quality: int64
+
+
+TARGET_COLUMN:
+  name: quality
+  

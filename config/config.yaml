@@ -1,0 +1,11 @@
+artifacts_root: artifacts #The directory where all data will be stored, preprocessing, transformation, model building etc
+
+#Pulling data from git hub lisk (this can be pulling from API in real projects)
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/Nraghav01/MLOps_github/raw/refs/heads/main/winequality-data.zip #Command to ingest data from git hub repository
+  local_data_file: artifacts/data_ingestion/data.zip
+  unzip_dir: artifacts/data_ingestion
+
+
+
