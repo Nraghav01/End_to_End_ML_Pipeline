@@ -26,11 +26,11 @@ list_of_files = [
     "params.yaml",
     "schema.yaml",
     "main.py",
-    "app.yaml",
+    "app.py",
     "requirements.txt",
     "setup.py",
     "research/trails.ipynb",
-    "templates/index"
+    "templates/index.html"
 ]
 
 #Path function helps define the folder paths irrespective of the OS of the user (mac/windows/linus)
