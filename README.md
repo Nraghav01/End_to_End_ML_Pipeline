@@ -69,17 +69,19 @@ python app.py
 
 
 # AWS-CICD-Deployment-with-Github-Actions
+## Make a file named "Docketfile" and add initial docker code there
+## MAke a folder named ".github" for github actions - add a folder named "workflows" and under that folder add a file named cicd.yaml
+## 1. Login to AWS console. 
 
-## 1. Login to AWS console.
-
-## 2. Create IAM user for deployment
+## 2. Create IAM user for deployment -  give access to user AmazonEC2ContainerRegistryFullAccess  and  AmazonEC2FullAccess
 
  -> #with specific access
 
+ -> Create ECR repository on AWS
+
  -> 1. EC2 access : It is virtual machine
 
- -> 2. ECR: Elastic Container registry to save your docker image in aws
-
+ -> 2. ECR: Elastic Container registry to save your docker image in aws: ECR repository URI: 737247133896.dkr.ecr.ap-south-1.amazonaws.com/wine-ml-cicd-project
 
  -> #Description: About the deployment
 
@@ -101,14 +103,14 @@ python app.py
 
  -> 
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 315865595366.dkr.ecr.us-east-1.amazonaws.com/winerepo
+    - Save the URI: 737247133896.dkr.ecr.ap-south-1.amazonaws.com/wine-ml-cicd-project
 
  -> 
 ## 4. Create EC2 machine (Ubuntu) 
 
 ## 5. Open EC2 and Install docker in EC2 Machine:
  -> 
- -> 
+ -> Connect top the Ubuntu EC2 instance created - Update the ubntu machine - Install the docker in the machine
  -> #optinal
 
  -> sudo apt-get update -y
@@ -125,18 +127,23 @@ python app.py
 
  -> newgrp docker
  -> 
-# 6. Configure EC2 as self-hosted runner:
+# 6. Configure EC2 as self-hosted runner: 
     setting>actions>runner>new self hosted runner> choose os> then run command one by one
+    Self hosted runner - connect EC2 with Github, so that when we update any new code pushing to github, it will also automatically get updated tro the EC2 machine
+    Run the 4 "Download" commands from the Git repositoru - Actions - Self-hosted runners - Linus machine
+    Run the 1st Configure command
+    Runner group - just click enter | Na,e of Runner: pick from cicd.yaml[Continuous-Deployment][runs-on] - self-hosted
+    Run the 2nd configure command - ./run.sh - this command starts the runner
 
+# 7. Setup github secrets: Go to github repository - secrets and variables - Actions - Create Repositoryt secret
+     This is doe to protect sensitive information - we will create a secret in github for the below AWS credentials
 
-# 7. Setup github secrets:
-
-    AWS_ACCESS_KEY_ID=
+    AWS_ACCESS_KEY_ID= ID downloaded from the IAM role
 
     AWS_SECRET_ACCESS_KEY=
 
-    AWS_REGION = us-east-1
+    AWS_REGION = ap-south-1
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = demo>>  737247133896.dkr.ecr.ap-south-1.amazonaws.com
 
-    ECR_REPOSITORY_NAME = simple-app
+    ECR_REPOSITORY_NAME = wine-ml-cicd-project
