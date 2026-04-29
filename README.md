@@ -147,3 +147,11 @@ python app.py
     AWS_ECR_LOGIN_URI = demo>>  737247133896.dkr.ecr.ap-south-1.amazonaws.com
 
     ECR_REPOSITORY_NAME = wine-ml-cicd-project
+
+#8. Doing Port mapping for the App - Before doing this when I copy the public IP address of my EC2 instance and run it no application appears
+  -> Before port mapping the port mentioned in app.py is port = 8080
+  -> To be port mapping do following:
+    - Go to EC2 instance - Security - Security group - Edit Inbound rules
+    - Inside Edit Inbound Rules - Add rule - Custom TCP - Port range 8080 - Source 0.0.0.0/. - save rule
+    - Copy public IP of EC2 instance, in the browser add 8080 in the link after public IP and run the app
+    
